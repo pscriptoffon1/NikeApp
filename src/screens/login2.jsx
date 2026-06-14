@@ -1,0 +1,83 @@
+import { useState } from "react";
+
+function Login2() {
+    const [email, setEmail] = useState("");
+    const [error, setError] = useState(false);
+
+    const handleSubmit = () => {
+        if (!email.trim()) {
+            setError(true);
+        }
+    };
+
+    const handleChange = (e) => {
+        setEmail(e.target.value);
+
+        if (e.target.value.trim()) {
+            setError(false);
+        }
+    };
+
+    return (
+        <div className="mobile-wrapper">
+            <div className="page">
+                <div className="login2-content">
+
+                    <svg width="51" height="18" viewBox="0 0 51 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.5595 17.9925C4.05779 17.9328 2.82916 17.521 1.86847 16.7562C1.68513 16.6101 1.24825 16.172 1.10168 15.9872C0.712105 15.4963 0.447248 15.0186 0.270591 14.4885C-0.273008 12.8569 0.00676277 10.7157 1.07082 8.36591C1.98187 6.35416 3.38767 4.3589 5.8403 1.59548C6.20158 1.18885 7.27747 -0.000366211 7.28441 -0.000366211C7.28698 -0.000366211 7.22835 0.101419 7.15455 0.225367C6.51684 1.29579 5.97118 2.55664 5.67393 3.6482C5.19641 5.39969 5.25401 6.90277 5.84261 8.06828C6.24864 8.87123 6.94473 9.56673 7.72747 9.95119C9.09778 10.624 11.104 10.6797 13.5541 10.1141C13.7227 10.0749 22.0814 7.85131 32.129 5.17267C42.1766 2.49377 50.3987 0.303702 50.4 0.305506C50.4028 0.307829 27.0566 10.3189 14.9372 15.5126C13.0179 16.3348 12.5047 16.5425 11.6023 16.86C9.29578 17.6717 7.22964 18.059 5.5595 17.9925Z" fill="black" />
+                    </svg>
+
+
+                    <div className="login2-header">
+                        <h1>
+                            Enter your email to join us or sign in.
+                        </h1>
+
+                        <div className="country">
+                            <span>United States</span>
+                            <button>Change</button>
+                        </div>
+                    </div>
+
+                    <div className="input-wrapper">
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={handleChange}
+                            className={error ? "error-input" : ""}
+                        />
+
+                        {error && (
+                            <p className="error-text">
+                                Invalid email address
+                            </p>
+                        )}
+                    </div>
+
+                    <div className="terms">
+                        <p>
+                            By continuing, I agree to Nike’s
+                        </p>
+
+                        <div className="links">
+                            <a href="/">Privacy Policy</a>
+                            <span>and</span>
+                            <a href="/">Terms of Use.</a>
+                        </div>
+                    </div>
+                    <a href="/login3">
+                        <button
+                            className="continue-btn3"
+                            onClick={handleSubmit}
+                        >
+                            Continue
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default Login2;

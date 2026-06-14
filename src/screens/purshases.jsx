@@ -1,4 +1,4 @@
-import Bottomnavprofile from "../components/Bottomnavprofile";
+import Bottomnavprofile from "../components/bottomnavprofile";
 
 function Purshases() {
     return (
